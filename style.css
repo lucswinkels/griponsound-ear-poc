@@ -1,0 +1,24 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  flex-direction: column;
+  background: #efefef;
+  width: 100vw;
+  height: 100dvh;
+}
+
+#value {
+  font-weight: 400;
+  font-size: 2em;
+  font-family: sans-serif;
+  margin-bottom: 20px;
+}
+
+svg#ear path#earPath {
+  stroke-width: 1px;
+  stroke: rgba(0, 0, 0, 0.2);
+}
