@@ -1,32 +1,23 @@
-function updateFillColor(value) {
-  const earPath = document.querySelector("#ear path");
+// Function to update the value and fill color
+function updateValueAndFill() {
+  const outlinePath = document.getElementById("outlinePath");
+  const valueElement = document.getElementById("value");
 
-  // Set the fill color based on the value
-  const red = Math.min(255, Math.round((value / 100) * 255));
-  const green = Math.min(255, Math.round(((100 - value) / 100) * 255));
-
-  earPath.setAttribute("fill", `rgb(${red}, ${green}, 0)`);
-}
-
-function graduallyChangeFillColor() {
-  const valueDiv = document.getElementById("value");
-  let value = 1;
-  function changeColor() {
-    updateFillColor(value);
-
-    // Increase the value
-    value++;
-    valueDiv.innerHTML = value;
-    // Exit the loop if the value reaches 100
-    if (value <= 99) {
-      // Call the function recursively with a delay
-      setTimeout(changeColor, 50);
-    }
+  function updateFill(value) {
+    const percentage = value / 100;
+    const fillColor = `rgb(${Math.round(255 * percentage)}, ${
+      255 - Math.round(255 * percentage)
+    }, 0)`;
+    outlinePath.style.fill = fillColor;
   }
 
-  // Start the loop
-  changeColor();
+  // Update the value and fill color periodically
+  setInterval(function () {
+    const randomValue = Math.floor(Math.random() * 101);
+    valueElement.innerHTML = randomValue;
+    updateFill(randomValue);
+  }, 1000); // Change every second
 }
 
-// Call the function to gradually change the fill color
-graduallyChangeFillColor();
+// Call the function to update the value and fill color
+updateValueAndFill();

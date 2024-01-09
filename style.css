@@ -18,7 +18,10 @@ body {
   margin-bottom: 20px;
 }
 
-svg#ear path#earPath {
-  stroke-width: 1px;
-  stroke: rgba(0, 0, 0, 0.2);
+#ear {
+  position: relative;
+}
+
+#outlinePath {
+  fill: #ff0000; /* Initial color (red) */
 }
